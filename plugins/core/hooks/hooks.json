@@ -27,7 +27,7 @@
         "hooks": [
           {
             "type": "prompt",
-            "prompt": "Invoke the update-claude-md skill to review what was discovered or changed during this session and surgically update CLAUDE.md to keep it accurate. Only make edits if there is something genuinely new or incorrect to fix."
+            "prompt": "Invoke the update-claude-md skill to review what was discovered or changed during this session and surgically update CLAUDE.md and AGENTS.md to keep both accurate. Apply changes to AGENTS.md only for tool-agnostic content (structure, commands, conventions); Claude-specific content (hooks, skills, agents, MCP) goes in CLAUDE.md only. Only make edits if there is something genuinely new or incorrect to fix."
           }
         ]
       }

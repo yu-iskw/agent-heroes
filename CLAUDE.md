@@ -50,7 +50,8 @@ This file provides guidance for AI assistants working in this repository.
 ├── Makefile                         # Task runner
 ├── README.md
 ├── CONTRIBUTING.md
-└── CLAUDE.md                        # This file
+├── AGENTS.md                        # AI assistant context for Gemini CLI, Cursor, Codex, etc.
+└── CLAUDE.md                        # This file (Claude Code-specific)
 ```
 
 ## Plugin Component Conventions
