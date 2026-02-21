@@ -6,7 +6,7 @@ Template repository for bootstrapping high-quality Claude Code plugins with shar
 
 - **Standard Plugin Layout**: Follows best practices for Skills, Agents, Hooks, MCP, and LSP.
 - **Monorepo Ready**: Designed to host multiple plugins under the `plugins/` directory.
-- **Comprehensive Examples**: The `hello-world` plugin demonstrates every available extension point.
+- **Comprehensive Examples**: The `core` plugin demonstrates every available extension point.
 - **Shared CI/CD**: Unified quality checks via `trunk` and GitHub Actions.
 - **Integration Tests**: Automated smoke tests that validate manifest schemas and component discovery across all plugins.
 
@@ -15,7 +15,7 @@ Template repository for bootstrapping high-quality Claude Code plugins with shar
 ```text
 .
 ├── plugins/                     # Container for all plugins
-│   └── hello-world/             # Comprehensive sample plugin
+│   └── core/                    # Comprehensive sample plugin
 │       ├── .claude-plugin/      # Plugin metadata (plugin.json)
 │       ├── agents/              # Custom agent definitions
 │       ├── skills/              # Model-invoked skills (SKILL.md)
@@ -34,7 +34,7 @@ Template repository for bootstrapping high-quality Claude Code plugins with shar
 ## Quickstart
 
 1.  **Create a new repository** from this template.
-2.  **Explore the sample plugin** in `plugins/hello-world/` to see how components are defined.
+2.  **Explore the sample plugin** in `plugins/core/` to see how components are defined.
 3.  **Run local checks**:
     ```bash
     make lint

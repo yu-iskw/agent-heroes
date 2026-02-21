@@ -1,0 +1,23 @@
+{
+  "name": "agent-heroes",
+  "owner": {
+    "name": "yu-iskw"
+  },
+  "metadata": {
+    "description": "Template repository for bootstrapping high-quality Claude Code plugins with shared CI/CD and testing infrastructure.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "core",
+      "source": "./plugins/core",
+      "description": "Comprehensive sample plugin demonstrating all Claude Code extension points.",
+      "version": "1.0.0",
+      "author": {
+        "name": "yu-iskw"
+      },
+      "license": "Apache-2.0",
+      "repository": "https://github.com/yu-iskw/agent-heroes"
+    }
+  ]
+}

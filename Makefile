@@ -20,7 +20,7 @@ lint:
 format:
 	trunk fmt --all
 
-.PHONY: test-integration-docker
-test-integration-docker:
+.PHONY: test
+test:
 	docker build -f integration_tests/Dockerfile -t claude-plugin-template-smoke .
 	docker run --rm claude-plugin-template-smoke

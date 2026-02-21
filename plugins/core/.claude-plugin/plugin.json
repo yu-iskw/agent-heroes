@@ -1,0 +1,12 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "Core plugin for the Claude Code plugin ecosystem.",
+  "author": {
+    "name": "yu-iskw"
+  },
+  "license": "Apache-2.0",
+  "repository": "https://github.com/yu-iskw/agent-heroes",
+  "mcpServers": "./.mcp.json",
+  "lspServers": "./.lsp.json"
+}
