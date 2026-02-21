@@ -33,18 +33,18 @@ Always read the full current `CLAUDE.md` and `AGENTS.md` before making any edits
 
 ### 3. Decide Which File(s) to Update
 
-| Discovery | Update CLAUDE.md | Update AGENTS.md |
-|---|---|---|
-| Claude-specific extension points (hooks schema, skills, agents, MCP) | Yes | No |
-| General repo structure, file paths, directory layout | Yes | Yes |
-| General commands (`make lint`, `make format`, `make test`) | Yes | Yes |
-| New plugin component conventions (manifest fields, kebab-case) | Yes | Yes |
-| New Makefile targets | Yes | Yes |
-| New linter in Trunk config | Yes | Yes |
-| New CI workflow | Yes | Yes |
-| New prerequisite tool | Yes | Yes |
-| New key convention (applies to all tools) | Yes | Yes |
-| New key convention (Claude-specific only) | Yes | No |
+| Discovery                                                            | Update CLAUDE.md | Update AGENTS.md |
+| -------------------------------------------------------------------- | ---------------- | ---------------- |
+| Claude-specific extension points (hooks schema, skills, agents, MCP) | Yes              | No               |
+| General repo structure, file paths, directory layout                 | Yes              | Yes              |
+| General commands (`make lint`, `make format`, `make test`)           | Yes              | Yes              |
+| New plugin component conventions (manifest fields, kebab-case)       | Yes              | Yes              |
+| New Makefile targets                                                 | Yes              | Yes              |
+| New linter in Trunk config                                           | Yes              | Yes              |
+| New CI workflow                                                      | Yes              | Yes              |
+| New prerequisite tool                                                | Yes              | Yes              |
+| New key convention (applies to all tools)                            | Yes              | Yes              |
+| New key convention (Claude-specific only)                            | Yes              | No               |
 
 ### 4. Apply Surgical Edits Only
 
@@ -56,17 +56,17 @@ Always read the full current `CLAUDE.md` and `AGENTS.md` before making any edits
 
 ### 5. Section Routing
 
-| Discovery type | Target section |
-|---|---|
-| New directory or file | Repository Structure (tree) |
-| New plugin component | Plugin Component Conventions (CLAUDE.md) / Plugin Components (AGENTS.md) |
-| New Makefile target | Linting and Formatting → Makefile Targets |
-| New linter | Enabled Linters table |
-| New GitHub Actions workflow | CI/CD table |
-| New convention or rule | Key Conventions (numbered list) |
-| New prerequisite tool | Prerequisites table |
-| New agent or skill | Agent Orchestration (CLAUDE.md only) |
-| Corrected workflow step | Development Workflows |
+| Discovery type              | Target section                                                           |
+| --------------------------- | ------------------------------------------------------------------------ |
+| New directory or file       | Repository Structure (tree)                                              |
+| New plugin component        | Plugin Component Conventions (CLAUDE.md) / Plugin Components (AGENTS.md) |
+| New Makefile target         | Linting and Formatting → Makefile Targets                                |
+| New linter                  | Enabled Linters table                                                    |
+| New GitHub Actions workflow | CI/CD table                                                              |
+| New convention or rule      | Key Conventions (numbered list)                                          |
+| New prerequisite tool       | Prerequisites table                                                      |
+| New agent or skill          | Agent Orchestration (CLAUDE.md only)                                     |
+| Corrected workflow step     | Development Workflows                                                    |
 
 ### 6. Do Not
 
@@ -82,6 +82,7 @@ Always read the full current `CLAUDE.md` and `AGENTS.md` before making any edits
 **Session discovery**: A new `make check` target was added that runs `make format` then `make lint`.
 
 **Edits**:
+
 - In `CLAUDE.md`: add one row to the Makefile Targets table.
 - In `AGENTS.md`: add one row to the equivalent commands section.
 

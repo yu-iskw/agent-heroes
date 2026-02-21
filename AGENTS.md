@@ -67,14 +67,14 @@ Every plugin **must** have `.claude-plugin/plugin.json`:
 
 ## Plugin Components
 
-| Component | Location | File |
-|-----------|----------|------|
-| Skills | `skills/<name>/` | `SKILL.md` (required YAML frontmatter: `name`, `description`) |
-| Agents | `agents/` | `<name>.md` (required frontmatter: `name`, `description`) |
-| Hooks | `hooks/` | `hooks.json` (must be valid JSON) |
-| Commands | `commands/` | `<name>.md` |
-| MCP servers | plugin root | `.mcp.json` |
-| LSP servers | plugin root | `.lsp.json` |
+| Component   | Location         | File                                                          |
+| ----------- | ---------------- | ------------------------------------------------------------- |
+| Skills      | `skills/<name>/` | `SKILL.md` (required YAML frontmatter: `name`, `description`) |
+| Agents      | `agents/`        | `<name>.md` (required frontmatter: `name`, `description`)     |
+| Hooks       | `hooks/`         | `hooks.json` (must be valid JSON)                             |
+| Commands    | `commands/`      | `<name>.md`                                                   |
+| MCP servers | plugin root      | `.mcp.json`                                                   |
+| LSP servers | plugin root      | `.lsp.json`                                                   |
 
 ### SKILL.md frontmatter (required)
 
@@ -91,7 +91,12 @@ description: One-sentence description.
 {
   "version": "1",
   "hooks": {
-    "PostToolUse": [{ "matcher": "Write|Edit", "hooks": [{ "type": "command", "command": "..." }] }],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [{ "type": "command", "command": "..." }]
+      }
+    ],
     "Stop": [{ "hooks": [{ "type": "prompt", "prompt": "..." }] }]
   }
 }
@@ -130,6 +135,7 @@ make test
 ```
 
 Test stages per plugin:
+
 1. Manifest validation — checks `plugin.json` schema and kebab-case name.
 2. Plugin install — `claude plugin install --scope project <path>` (requires Claude CLI).
 3. Plugin loading — verifies runtime load.
@@ -148,11 +154,11 @@ Always run `make format && make lint` before committing.
 
 ## CI/CD
 
-| Workflow | Trigger |
-|---------|---------|
+| Workflow                | Trigger                         |
+| ----------------------- | ------------------------------- |
 | `integration_tests.yml` | Push to any branch, PRs, manual |
-| `trunk_check.yml` | PRs, manual |
-| `trunk_upgrade.yml` | Scheduled |
+| `trunk_check.yml`       | PRs, manual                     |
+| `trunk_upgrade.yml`     | Scheduled                       |
 
 ## Key Conventions
 
@@ -169,13 +175,13 @@ Always run `make format && make lint` before committing.
 
 ## Prerequisites
 
-| Tool | Required for |
-|------|-------------|
-| `git` | Version control |
-| `docker` | Integration tests via `make test` |
-| `trunk` | Linting and formatting |
-| `jq` or `node` | JSON validation in tests |
-| `claude` CLI | Plugin install/load tests (optional) |
+| Tool           | Required for                         |
+| -------------- | ------------------------------------ |
+| `git`          | Version control                      |
+| `docker`       | Integration tests via `make test`    |
+| `trunk`        | Linting and formatting               |
+| `jq` or `node` | JSON validation in tests             |
+| `claude` CLI   | Plugin install/load tests (optional) |
 
 ```bash
 # Install Trunk

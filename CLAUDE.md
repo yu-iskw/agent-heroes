@@ -62,14 +62,14 @@ Every plugin directory **must** contain `.claude-plugin/plugin.json`. Required f
 
 ```json
 {
-  "name": "plugin-name",      // kebab-case, matches ^[a-z0-9-]+$
+  "name": "plugin-name", // kebab-case, matches ^[a-z0-9-]+$
   "version": "1.0.0",
   "description": "...",
   "author": { "name": "..." },
   "license": "Apache-2.0",
   "repository": "...",
-  "mcpServers": "./.mcp.json",  // optional
-  "lspServers": "./.lsp.json"   // optional
+  "mcpServers": "./.mcp.json", // optional
+  "lspServers": "./.lsp.json" // optional
 }
 ```
 
@@ -89,9 +89,11 @@ description: One-sentence description used for skill selection.
 # Skill Title
 
 ## Purpose
+
 ...
 
 ## Instructions
+
 ...
 ```
 
@@ -112,6 +114,7 @@ description: What this agent does.
 # Agent Title
 
 ## Role
+
 ...
 ```
 
@@ -151,7 +154,12 @@ Slash command definitions as Markdown files. Place in `commands/` directory.
   "mcpServers": {
     "server-name": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sqlite", "--db", "${CLAUDE_PLUGIN_ROOT}/data/sample.db"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sqlite",
+        "--db",
+        "${CLAUDE_PLUGIN_ROOT}/data/sample.db"
+      ],
       "env": { "DEBUG": "true" }
     }
   }
@@ -238,20 +246,21 @@ make test      # Build Docker image and run integration tests
 
 ### Enabled Linters (`.trunk/trunk.yaml`)
 
-| Linter | Purpose |
-|--------|---------|
-| `shfmt` | Shell script formatting |
-| `shellcheck` | Shell script static analysis |
-| `actionlint` | GitHub Actions workflow linting |
-| `markdownlint` | Markdown style checks |
-| `prettier` | General formatting (JSON, YAML, etc.) |
-| `trivy` | Security vulnerability scanning |
-| `yamllint` | YAML validation |
+| Linter           | Purpose                                  |
+| ---------------- | ---------------------------------------- |
+| `shfmt`          | Shell script formatting                  |
+| `shellcheck`     | Shell script static analysis             |
+| `actionlint`     | GitHub Actions workflow linting          |
+| `markdownlint`   | Markdown style checks                    |
+| `prettier`       | General formatting (JSON, YAML, etc.)    |
+| `trivy`          | Security vulnerability scanning          |
+| `yamllint`       | YAML validation                          |
 | `git-diff-check` | Trailing whitespace / mixed line endings |
 
 ### Pre-commit / Pre-push Hooks (Trunk Actions)
 
 Trunk is configured to auto-run:
+
 - `trunk-fmt-pre-commit` — Format on commit
 - `trunk-check-pre-push` — Lint on push
 
@@ -261,11 +270,11 @@ Always run `make format && make lint` before opening a PR.
 
 ### GitHub Actions Workflows
 
-| Workflow | Trigger | What it does |
-|---------|---------|-------------|
+| Workflow                | Trigger                         | What it does                                                     |
+| ----------------------- | ------------------------------- | ---------------------------------------------------------------- |
 | `integration_tests.yml` | Push to any branch, PRs, manual | Installs Claude CLI, runs `./integration_tests/run.sh --verbose` |
-| `trunk_check.yml` | PRs, manual | Runs Trunk linters via `trunk-io/trunk-action@v1` |
-| `trunk_upgrade.yml` | Scheduled | Keeps Trunk tooling versions up to date |
+| `trunk_check.yml`       | PRs, manual                     | Runs Trunk linters via `trunk-io/trunk-action@v1`                |
+| `trunk_upgrade.yml`     | Scheduled                       | Keeps Trunk tooling versions up to date                          |
 
 CI runs all linters and integration tests. Both must pass before merging.
 
@@ -281,6 +290,7 @@ The `.claude/agents/claude-plugin-manager.md` agent orchestrates the full plugin
 - Runs `plugin-verification` before reporting completion
 
 **Complexity scoring guide** (from Anthropic best practices):
+
 - **Score 0–3**: Simple skill (deterministic, single task)
 - **Score 4–6**: Workflow skill (multi-step, some branching)
 - **Score 7–8**: Sub-agent (autonomous, model-driven decisions)
@@ -290,16 +300,16 @@ The `.claude/agents/claude-plugin-manager.md` agent orchestrates the full plugin
 
 ### Available Skills (invoked by the agent)
 
-| Skill | Purpose |
-|-------|---------|
+| Skill                         | Purpose                                                 |
+| ----------------------------- | ------------------------------------------------------- |
 | `implement-claude-extensions` | Decision gateway; routes to appropriate component skill |
-| `implement-agent-skills` | Create/validate SKILL.md files |
-| `implement-sub-agents` | Create/validate sub-agent definitions |
-| `implement-hooks` | Implement hook configurations and scripts |
-| `implement-agent-teams` | Set up agent team configurations |
-| `implement-plugin` | Package plugin for distribution |
-| `plugin-verification` | Layered verification (component, manifest, runtime) |
-| `lint-fix` | Auto-fix linting violations via Trunk |
+| `implement-agent-skills`      | Create/validate SKILL.md files                          |
+| `implement-sub-agents`        | Create/validate sub-agent definitions                   |
+| `implement-hooks`             | Implement hook configurations and scripts               |
+| `implement-agent-teams`       | Set up agent team configurations                        |
+| `implement-plugin`            | Package plugin for distribution                         |
+| `plugin-verification`         | Layered verification (component, manifest, runtime)     |
+| `lint-fix`                    | Auto-fix linting violations via Trunk                   |
 
 ## Key Conventions for AI Assistants
 
@@ -316,20 +326,22 @@ The `.claude/agents/claude-plugin-manager.md` agent orchestrates the full plugin
 
 ## Prerequisites
 
-| Tool | Required for |
-|------|-------------|
-| `git` | Version control |
-| `docker` | Running integration tests via `make test` |
-| `trunk` | Linting and formatting (`make lint`, `make format`) |
-| `jq` or `node` | Manifest and hook JSON validation |
-| `claude` CLI (optional) | Full plugin install/load tests |
+| Tool                    | Required for                                        |
+| ----------------------- | --------------------------------------------------- |
+| `git`                   | Version control                                     |
+| `docker`                | Running integration tests via `make test`           |
+| `trunk`                 | Linting and formatting (`make lint`, `make format`) |
+| `jq` or `node`          | Manifest and hook JSON validation                   |
+| `claude` CLI (optional) | Full plugin install/load tests                      |
 
 Install Trunk:
+
 ```bash
 curl https://get.trunk.io -fsSL | bash
 ```
 
 Install Claude Code CLI (optional):
+
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
