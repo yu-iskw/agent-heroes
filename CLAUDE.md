@@ -337,7 +337,11 @@ The `.claude/agents/claude-plugin-manager.md` agent orchestrates the full plugin
 Install Trunk:
 
 ```bash
-curl https://get.trunk.io -fsSL | bash
+# macOS (recommended)
+brew install trunk-io/extensions/trunk
+
+# Any platform via npm
+npm install -g @trunkio/launcher
 ```
 
 Install Claude Code CLI (optional):

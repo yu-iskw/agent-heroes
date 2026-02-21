@@ -184,8 +184,11 @@ Always run `make format && make lint` before committing.
 | `claude` CLI   | Plugin install/load tests (optional) |
 
 ```bash
-# Install Trunk
-curl https://get.trunk.io -fsSL | bash
+# Install Trunk — macOS (recommended)
+brew install trunk-io/extensions/trunk
+
+# Install Trunk — any platform via npm
+npm install -g @trunkio/launcher
 
 # Install Claude CLI (optional)
 npm install -g @anthropic-ai/claude-code
